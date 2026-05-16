@@ -41,10 +41,9 @@ jobs:
       - name: Run tests with coverage
         run: |
           uv run pytest \
-            --cov=src/random_game \
+            --cov \
             --cov-report=term-missing \
             --cov-report=xml \
-            --cov-fail-under=80 \
             -v
 
       - name: Upload coverage report

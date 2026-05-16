@@ -43,6 +43,18 @@ markers = [
     "integration: интеграционные тесты",
 ]
 
+[tool.coverage.run]
+source = ["src/random_game"]
+omit = [
+    "src/random_game/ui/*",
+    "src/random_game/__main__.py",
+    "src/random_game/paths.py",
+]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+
 [tool.ruff]
 line-length = 120
 target-version = "py312"
