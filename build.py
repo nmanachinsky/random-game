@@ -40,14 +40,14 @@ def main() -> int:
     print("$", " ".join(cmd))
     result = subprocess.run(cmd, cwd=ROOT, env=os.environ.copy())
     if result.returncode != 0:
-        print("Сборка завершилась с ошибкой.", file=sys.stderr)
+        print("Build failed.", file=sys.stderr)
         return result.returncode
 
     exe = DIST_PATH / "RandomGame.exe"
     if exe.exists():
-        print(f"\nГотово: {exe} ({exe.stat().st_size / (1024 * 1024):.1f} МБ)")
+        print(f"\nDone: {exe} ({exe.stat().st_size / (1024 * 1024):.1f} MB)")
     else:
-        print("Сборка прошла, но exe не найден в dist/", file=sys.stderr)
+        print("Build succeeded but dist/RandomGame.exe not found.", file=sys.stderr)
         return 1
     return 0
 
